@@ -1,15 +1,16 @@
 "use client";
 
+import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Navigation, Autoplay } from "swiper/modules";
 
 interface BannerProps {
-  height?: string; // می‌تونی ارتفاع دلخواه بدی، مثل "h-40"
+  height?: string;
 }
 
-export default function Banner({ height = "h-48" }: BannerProps) {
+const Banner: React.FC<BannerProps> = ({ height = "h-64" }) => {
   const slides = [
     "https://res.cloudinary.com/dhff7ulyr/image/upload/v1733127264/samples/landscapes/beach-boat.jpg",
     "https://res.cloudinary.com/dhff7ulyr/image/upload/v1733127264/samples/animals/three-dogs.jpg",
@@ -17,25 +18,27 @@ export default function Banner({ height = "h-48" }: BannerProps) {
   ];
 
   return (
-    <div className={`w-full ${height} mt-2`}>
+    <div className={`w-full ${height} relative`}>
       <Swiper
         rewind={true}
-        navigation={true}
         loop={true}
-        autoplay={{ delay: 2000 }}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
+        navigation={true}
         modules={[Navigation, Autoplay]}
-        className="w-full h-full"
+        className="h-full w-full"
       >
         {slides.map((src, index) => (
-          <SwiperSlide key={index} className="w-full h-full">
+          <SwiperSlide key={index}>
             <img
               src={src}
               alt={`Slide ${index + 1}`}
-              className="w-full h-full object-cover rounded-xl"
+              className="w-full h-full object-cover rounded-lg"
             />
           </SwiperSlide>
         ))}
       </Swiper>
     </div>
   );
-}
+};
+
+export default Banner;

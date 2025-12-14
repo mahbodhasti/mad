@@ -20,7 +20,6 @@ export default function Navbar({
 
   return (
     <nav className="sticky top-0 z-50 bg-gradient-to-r from-purple-700 via-blue-600 to-orange-500 shadow-md flex justify-between items-center px-6 py-3">
-      
       {/* لوگو */}
       <div className="flex items-center gap-2">
         <Image
