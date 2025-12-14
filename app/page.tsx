@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from '../components/navbar/Navbar';
-import Banner from '../components/banner/Banner';
+import Navbar from "@/components/navbar/Navbar";
+import Banner from "@/components/banner/Banner";
+
 
 
 export default function HomePage() {
